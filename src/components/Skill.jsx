@@ -43,7 +43,7 @@ function Skill() {
               </p>
               <Carousel responsive={responsive} infinete={true} className='skill-slider'>
                 <div className="item">
-                    <img src={meter1} alt="webdevelopment-image" />
+                    <img src={meter1} alt="webdevelopment" />
                     <h5>Web Development</h5>
                 </div>
 
@@ -67,7 +67,7 @@ function Skill() {
         </Row>
       </Container>
 
-        <img className="background-image-left" src={colorSharp} />
+        <img className="background-image-left" src={colorSharp} alt='background details'/>
 
     </section>
   );
