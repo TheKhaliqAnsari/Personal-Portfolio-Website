@@ -61,7 +61,7 @@ function Banner() {
               practical projects and have been exploring new technologies and
               leveraging them to solve real life problems.
             </p>
-            <button onClick={() => console.log("connect")}>
+            <button onClick={() => window.location.href="#connect"}>
               Let's connect <ArrowRightCircle size={25} />
             </button>
           </Col>

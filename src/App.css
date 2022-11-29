@@ -59,6 +59,9 @@ ul {
   line-height: normal;
   text-decoration: none;
 }
+p{
+  text-align: left;
+}
 
 a:hover {
   text-decoration: none;
@@ -68,6 +71,10 @@ img {
   width: 100%;
   height: auto;
 }
+@media (max-width: 993px){
+  
+}
+
 
 button {
   border: 0;
@@ -96,6 +103,19 @@ p.danger {
 }
 
 /************ Navbar Css ************/
+#main-logo{
+  width: 100%;  
+  display: block; 
+
+}
+/* logo media query for mobile or small display */
+@media(min-width: 10px) and (max-width:993px){
+  #main-logo{
+    margin-left: 220%;
+    width: 300%;
+  }
+}
+
 nav.navbar {
   padding: 18px 0;
   position: fixed;
@@ -109,7 +129,7 @@ nav.navbar.scrolled {
   background-color: #121212;
 }
 nav.navbar a.navbar-brand {
-  width: 12%;
+  width: 13%;
 }
 nav.navbar .navbar-nav .nav-link.navbar-link {
   font-weight: 400;
@@ -579,4 +599,16 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 .contact form button:hover::before {
   width: 100%;
+}
+/* Footer */
+.navbar-text-footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2%;
+}
+
+.footer-heart{
+  height: 25px;
+  width: 25px;
 }
