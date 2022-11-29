@@ -25,7 +25,7 @@ function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonText('Sending...');
-    let response = await fetch('http://ec2-3-95-162-93.compute-1.amazonaws.com:5000/contact',{
+    let response = await fetch('https://ec2-3-95-162-93.compute-1.amazonaws.com:5443/contact',{
         method: "POST",
         headers:{
             "Content-Type": "application/json;charset=utf-8",
@@ -33,7 +33,7 @@ function Contact() {
         body: JSON.stringify(formDetails),
     });
     setButtonText("Send");
-    let result =await response.json();
+    let result = await response.json();
     setFormDetails(formInitialDetails);
     if(result.code === 200){
         setStatus({success: true, message: "Message Sent Successfully"});
