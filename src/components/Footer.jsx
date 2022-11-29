@@ -15,7 +15,7 @@ function Footer() {
             </div>
             
     </span>
-    <div>Made with  by <span><img className='footer-heart' src={heart} alt="love" /></span> by TheKhaliqAnsari</div>
+    <div>Made with <span><img className='footer-heart' src={heart} alt="love" /></span> by TheKhaliqAnsari</div>
     </>
   )
 }
