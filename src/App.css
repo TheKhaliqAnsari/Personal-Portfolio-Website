@@ -608,6 +608,10 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   padding: 2%;
 }
 
+.navbar-made-love{
+  margin-bottom: 1.5%;
+}
+
 .footer-heart{
   height: 25px;
   width: 25px;

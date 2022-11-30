@@ -1,6 +1,6 @@
 import React from 'react';
 import navIcon1 from '../assets/img/nav-icon1.svg';
-import navIcon2 from '../assets/img/nav-icon2.svg';
+import navIcon2 from '../assets/img/github.svg';
 import navIcon3 from '../assets/img/nav-icon3.svg';
 import heart from '../assets/img/heart.png'
 
@@ -15,7 +15,7 @@ function Footer() {
             </div>
             
     </span>
-    <div>Made with <span><img className='footer-heart' src={heart} alt="love" /></span> by TheKhaliqAnsari</div>
+    <div className='navbar-made-love'>Made with <span><img className='footer-heart' src={heart} alt="love" /></span> by TheKhaliqAnsari</div>
     </>
   )
 }

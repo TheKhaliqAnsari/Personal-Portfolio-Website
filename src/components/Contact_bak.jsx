@@ -3,73 +3,43 @@ import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.svg";
 
 function Contact() {
-  const [userData, setUserData] = useState({
+  const formInitialDetails = {
     firstName: "",
     lastName: "",
-    email:"",
-    phone:"",
-    message:"",
-  });
+    email: "",
+    phone: "",
+    message: "",
+  };
+
+  const [formDetails, setFormDetails] = useState(formInitialDetails);
   const [buttonText, setButtonText] = useState("Send");
   const [status, setStatus] = useState({});
 
-  let name, value;
-  const postUserData = (event) => {
-    name = event.target.name;
-    value = event.target.value;
-    setUserData({...userData, [name]: value});
-  }
+  const onFormUpdate = (category, value) => {
+    setFormDetails({
+      ...formDetails,
+      [category]: value,
+    });
+  };
 
-
-
-//   const onFormUpdate = (category, value) => {
-//     setFormDetails({
-//       ...formDetails,
-//       [category]: value,
-//     });
-//   };
-
-  const submitData = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const {firstName, lastName, email, phone, message} = userData;
     setButtonText('Sending...');
-    if(firstName && lastName && email && phone && message){
-
-    let response = await fetch('https://production-portfolio-1adc3-default-rtdb.firebaseio.com/contactRecords.json',{
+    let response = await fetch('http://localhost:8888/.netlify/functions/server:5003/contact',{
         method: "POST",
         headers:{
             "Content-Type": "application/json;charset=utf-8",
         },
-        body: JSON.stringify({
-            firstName, lastName, email, phone, message,
-        }),
+        body: JSON.stringify(formDetails),
     });
     setButtonText("Send");
-    // let result = await response.json();
-    setUserData({
-        firstName: "",
-        email:"",
-        lastName: "",
-        message:"",
-        phone:"",
-    });
-
-    if(response){
+    let result = await response.json();
+    setFormDetails(formInitialDetails);
+    if(result.code === 200){
         setStatus({success: true, message: "Message Sent Successfully"});
     }else{
         setStatus({success: false, message:"Something went wrong, please try again later."})
     }
-
-    // if(result.code === 200){
-    //     setStatus({success: true, message: "Message Sent Successfully"});
-    // }else{
-    //     setStatus({success: false, message:"Something went wrong, please try again later."})
-    // }
-    }
-        else{
-            setStatus({success: false, message:"Please fill form data."})
-        }
-
   };
 
   return (
@@ -81,56 +51,49 @@ function Contact() {
           </Col>
           <Col md={6}>
             <h2>Get In Touch</h2>
-            <form onSubmit={submitData}> 
-                {/* onSubmit={handleSubmit} */}
+            <form onSubmit={handleSubmit}>
               <Row>
                 <Col sm={6} className="px-1">
                   <input
                     type="text"
-                    name="firstName"
-                    value={userData.firstName}
+                    value={formDetails.firstName}
                     placeholder="First Name"
-                    onChange={postUserData}
-                                      />
+                    onChange={(e) => onFormUpdate("firstName", e.target.value)}
+                  />
                 </Col>
                 <Col sm={6} className="px-1">
                   <input
                     type="text"
-                    name="lastName"
-                    value={userData.lastName}
+                    value={formDetails.lastName}
                     placeholder="Last Name"
-                    onChange={postUserData}
-                                     />
+                    onChange={(e) => onFormUpdate("lastName", e.target.value)}
+                  />
                 </Col>
                 <Col sm={6} className="px-1">
                   <input
                     type="email"
-                    name="email"
-                    value={userData.email}
+                    value={formDetails.email}
                     placeholder="Email Address"
-                    onChange={postUserData}
-                                  />
+                    onChange={(e) => onFormUpdate("email", e.target.value)}
+                  />
                 </Col>
                 <Col sm={6} className="px-1">
                   <input
                     type="tel"
-                    name="phone"
-                    value={userData.phone}
+                    value={formDetails.phone}
                     placeholder="Phone Number"
-                    onChange={postUserData}
-                                  />
+                    onChange={(e) => onFormUpdate("phone", e.target.value)}
+                  />
                 </Col>
 
                 <Col>
                   <textarea
                     row="6"
-                    name="message"
-                    value={userData.message}
+                    value={formDetails.message}
                     placeholder="Message"
-                    onChange={postUserData}
-                                    />
-                  <button type="submit" >
-                  {/* onClick={submitData} */}
+                    onChange={(e) => onFormUpdate("message", e.target.value)}
+                  />
+                  <button type="submit">
                     <span>{buttonText}</span>
                   </button>
                 </Col>
