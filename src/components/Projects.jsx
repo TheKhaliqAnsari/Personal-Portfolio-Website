@@ -3,34 +3,36 @@ import { Tab } from "react-bootstrap";
 import { Container, Row, Col, Nav } from "react-bootstrap";
 import ProjectCard from "./ProjectCard";
 import colorSharp2 from "../assets/img/color-sharp2.png";
-import projImg1 from "../assets/img/project-img2.png";
-import projImg2 from "../assets/img/numguess.png";
-import projImg3 from "../assets/img/birthday.png";
+import projImg1 from "../assets/img/qkart.png";
+import projImg2 from "../assets/img/xflix.png";
+import projImg3 from "../assets/img/qtrip.png";
+import projImg4 from "../assets/img/xboard.png"
 function Projects() {
   const projects = [
     {
-      title: "Social Networking Website",
+      title: "Qkart Ecommerce",
       description: "Front end and backend design",
       imgUrl: projImg1,
-      link: "https://github.com/TheKhaliqAnsari/Yaaria-TheSocialNetwork",
+      link: "https://qkart-fastest-ecom.netlify.app/",
     },
     {
-      title: "Guess Number game",
+      title: "Xflix Video Streaming",
       description: "Javascript game",
       imgUrl: projImg2,
-      link: 'https://github.com/TheKhaliqAnsari/Yaaria-TheSocialNetwork',
+      link: 'https://xflix-video-sharing-platform.netlify.app/',
     },
     {
-      title: "Birthday Reminder",
+      title: "Xboard New App",
       description: "Basic birthday remider app using react",
       imgUrl: projImg3,
-      link: 'https://friendsbirthdayreminder.netlify.app/'
+      link: 'https://xboard-news-of-the-day.netlify.app/'
     },
-    // {
-    //   title: "Online Store",
-    //   description: "Amazon clone using react and redux",
-    //   imgUrl: projImg1,
-    // },
+    {
+      title: "Qtrip Tour planner",
+      description: "Amazon clone using react and redux",
+      imgUrl: projImg4,
+      link: "https://qtrip-airbnb-dynamic.netlify.app"
+    },
   ];
 
   return (
