@@ -17,7 +17,7 @@ function App() {
       <Projects />
       <Contact />
       <Footer />
-    <h1>Khaliq</h1>
+
     </div>
   );
 }
