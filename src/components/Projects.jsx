@@ -27,12 +27,12 @@ function Projects() {
       imgUrl: projImg3,
       link: 'https://xboard-news-of-the-day.netlify.app/'
     },
-    {
-      title: "Qtrip Tour planner",
-      description: "Amazon clone using react and redux",
-      imgUrl: projImg4,
-      link: "https://qtrip-airbnb-dynamic.netlify.app"
-    },
+    // {
+    //   title: "Qtrip Tour planner",
+    //   description: "Amazon clone using react and redux",
+    //   imgUrl: projImg4,
+    //   link: "https://qtrip-airbnb-dynamic.netlify.app"
+    // },
   ];
 
   return (
